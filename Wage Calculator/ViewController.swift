@@ -29,11 +29,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func CalculateButtonEvent(_ sender: UIButton) {
+        
         //Declare variables from name fields and hours worked
         let firstName: String = FirstNameInput.text!
         let lastName: String = LastNameInput.text!
         var hoursWorked:Float = Float(HoursWorkedInput.text!)!
-        
+
         //Output Variable
         var finalWage: Float = 0.00
         
@@ -69,6 +70,7 @@ class ViewController: UIViewController {
         }
         
         //Convert to currency
+        //Adapted from https://supereasyapps.com/blog/2016/2/8/how-to-use-nsnumberformatter-in-swift-to-make-currency-numbers-easy-to-read
         
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
@@ -85,9 +87,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ClearButtonEvent(_ sender: UIButton) {
-    
-    
-    
+        //Empty all cells
+        
+        FirstNameInput.text = ""
+        LastNameInput.text = ""
+        HoursWorkedInput.text = ""
+        OutputLabel.text = ""
+        
+        //Turn Apple certified switch off
+        AppleCertifiedSwitch.isOn = false
     }
     
     
