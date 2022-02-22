@@ -22,14 +22,27 @@ class ViewController: UIViewController {
     //Output UILabel
     
     @IBOutlet weak var OutputLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
+    
+    
+    
+    
     @IBAction func CalculateButtonEvent(_ sender: UIButton) {
         
+        //Check all fields are filled
+        if FirstNameInput.hasText && LastNameInput.hasText && HoursWorkedInput.hasText {
+            performCalculation()
+        } else {
+            OutputLabel.text = "Please fill all fields"
+            OutputLabel.isHidden = false
+        }
+        
+    }
+    func performCalculation() {
         //Declare variables from name fields and hours worked
         let firstName: String = FirstNameInput.text!
         let lastName: String = LastNameInput.text!
@@ -86,6 +99,7 @@ class ViewController: UIViewController {
         
     }
     
+    
     @IBAction func ClearButtonEvent(_ sender: UIButton) {
         //Empty all cells
         
@@ -97,10 +111,5 @@ class ViewController: UIViewController {
         //Turn Apple certified switch off
         AppleCertifiedSwitch.isOn = false
     }
-    
-    
-    
-    
-
 }
 
